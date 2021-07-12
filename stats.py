@@ -1,12 +1,12 @@
 from importlib import reload
-import dgp_ric; dgp_ric.dgp()  
-import main_ric
+import dgp; dgp.dgp()  
+import main
 import os
 import time
 import numpy as np
 import settings
 import shutil # to copy data files
-from helper_ric import Lambda_to_lambda as L_to_l
+from helper import Lambda_to_lambda as L_to_l
 
 # Gelman-Rubin diagnostic (Rhat)
 def get_gelman(chain1, chain2):
@@ -70,25 +70,25 @@ for file in data_files:
     targ = os.path.join(fpath, '{}.txt'.format(file))
     shutil.copyfile(orig, targ)
 
-n_samples = 100
+n_samples = 1
 n = 0
 run = 1
 err_rate = np.zeros(n_samples)
 while n < n_samples:
     print("\nSample", n+1)
-    err_rate[n] = dgp_ric.dgp()
+    err_rate[n] = dgp.dgp()
     print("Data generated")
-    params_mh = main_ric.run("mh")
+    params_mh = main.run("mh")
     
     # check Rhat
     mh_converged = check_conv(params_mh)
     if mh_converged:
-        params_ric = main_ric.run("ric")
+        params_ric = main.run("ric")
         ric_converged = check_conv(params_ric)
         print("Converged:", mh_converged and ric_converged)
         
         # if converges, save chains
-        if mh_converged and ric_converged:
+        if ric_converged:
             save(params_mh, fpath, n, "mh")
             save(params_ric, fpath, n, "ric")
             n += 1

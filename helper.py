@@ -1,28 +1,5 @@
 import numpy as np
 
-#--------------------------------CODE FOR ALL LATENT VARIABLES----------------
-# def B_to_b(B):
-#     li = [B[0,0], B[1,0], B[1,-1], B[-2, -2], B[-2, -1], B[-1, -2], B[-1, -1]]
-#     return np.array(li)
-
-# def b_to_B(b):
-#     B = np.zeros((6, 4))
-#     li = b[[0, 1, 2, 3, 4, 5, 6, 3, 4, 5, 6]]
-#     x_indices = [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
-#     y_indices = [0, 0, -1, 1, -1, 1, -1, 2, -1, 2, -1]
-#     B[x_indices, y_indices] = li
-#     return B
-
-# def w_to_W(w):
-#     row_indices = [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
-#     col_indices = [0, 1, 2, 3, 4, 5, 6, 3, 4, 5, 6]
-#     N = w.shape[0]
-#     W = np.zeros((N, 6, 7))
-#     for n in range(N):
-#         li = [w[n,0], w[n,0], w[n,3], w[n,1], w[n,3], w[n,1], w[n,3], 
-#               w[n,2], w[n,3], w[n,2], w[n,3]]
-#         W[n, row_indices, col_indices] = li
-#     return W
 
 def B_to_b(B):
     x_indices = [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]

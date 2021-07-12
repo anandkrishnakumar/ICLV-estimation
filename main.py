@@ -1,9 +1,9 @@
 import settings; settings.init()
-import drawer_ric
-from drawer_ric import draw_z_ric, loglike, draw_z_mh, draw_beta
-from drawer_ric import draw_b_fast, draw_Theta, draw_tau
-from drawer_ric import draw_Lambda, draw_Psi
-from helper_ric import b_to_B, B_to_b, w_to_W, lambda_to_Lambda, Lambda_to_lambda
+import drawer
+from drawer import draw_z_ric, loglike, draw_z_mh, draw_beta
+from drawer import draw_b_fast, draw_Theta, draw_tau
+from drawer import draw_Lambda, draw_Psi
+from helper import b_to_B, B_to_b, w_to_W, lambda_to_Lambda, Lambda_to_lambda
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -27,11 +27,11 @@ def main(z_update):
     for n in range(N):
         x[n] = np.concatenate([aa, X[n]], 1)
     ASC = np.loadtxt("ASC.txt")
-    drawer_ric.N = N
-    drawer_ric.Y = Y
-    drawer_ric.X = X
-    drawer_ric.x = x
-    drawer_ric.ASC = ASC
+    drawer.N = N
+    drawer.Y = Y
+    drawer.X = X
+    drawer.x = x
+    drawer.ASC = ASC
     
     Theta = np.loadtxt("Theta.txt")
     Psi = np.loadtxt("Psi.txt")
@@ -139,9 +139,9 @@ def main(z_update):
 
 def run(z_update):
     dic = {}
-    import drawer_ric
+    import drawer
     dic["b1"], dic["Lambda1"], dic["beta1"], dic["tau1"] = main(z_update)
-    import drawer_ric
+    import drawer
     dic["b2"], dic["Lambda2"], dic["beta2"], dic["tau2"] = main(z_update)
     
     return dic

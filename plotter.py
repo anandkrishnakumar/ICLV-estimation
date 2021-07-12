@@ -1,17 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
-# import matplotlib.backends.backend_pdf # for pdf
-# import matplotlib; matplotlib.use("pgf")
-# matplotlib.rcParams.update({
-#     "pgf.texsystem": "pdflatex",
-#     'font.family': 'serif',
-#     'text.usetex': True,
-#     'pgf.rcfonts': False,
-# })
 import seaborn as sns; sns.set()
 sns.set_context('paper', font_scale=4)
-# plt.style.use("ggplot"); import tikzplotlib
-# from pandas.io import clipboard
 import os
 
 # from labellines import labelLine, labelLines

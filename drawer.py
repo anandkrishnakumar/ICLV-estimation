@@ -5,8 +5,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 import settings
-import helper_ric
-from helper_ric import lambda_to_Lambda
+from helper import lambda_to_Lambda
 
 #--------------------------------CODE FOR ALL LATENT VARIABLES----------------
 
@@ -135,7 +134,6 @@ def draw_tau(beta, mean_tau, V_tau, tau, z, curr_loglike):
             accept_rate += 1/2
             
     settings.RHO_tau = settings.RHO_tau - 0.0001 * (accept_rate < 0.3) + 0.0001 * (accept_rate > 0.3)
-    # tau = helper.fill_tau(tau)
     return tau, curr_loglike
     
 

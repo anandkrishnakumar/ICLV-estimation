@@ -3,8 +3,8 @@ import settings; settings.init()
 import numpy as np
 import pandas as pd
 import plotter
-from helper_ric import Bchain_to_bchain, Lambdachain_to_lambdachain
-from helper_ric import Lambda_to_lambda, Tauchain_to_tauchain, Tau_to_tau
+from helper import Bchain_to_bchain, Lambdachain_to_lambdachain
+from helper import Lambda_to_lambda, Tauchain_to_tauchain, Tau_to_tau
 
 # Gelman-Rubin diagnostic (Rhat)
 def get_gelman(chain1, chain2, niter):

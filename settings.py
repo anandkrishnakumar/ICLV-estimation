@@ -11,7 +11,7 @@ import pandas as pd
 
 def init():
     global niter
-    niter = 3000
+    niter = 30
     
     global RHO_z, RHO_beta, RHO_tau
     RHO_z = 0.01
